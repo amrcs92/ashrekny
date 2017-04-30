@@ -1,0 +1,319 @@
+
+<div class="container">
+	<p style="padding: 45px"></p>
+	<ul class="nav nav-tabs feed_tabs signupTab">
+		<li class="active col-lg-3"><a data-toggle="tab" href="/#home">منظمة</a></li>
+		<li class="col-lg-3"><a data-toggle="tab" href="/#menu1">متطوع</a></li>
+	</ul>
+
+	<div class="tab-content">
+	    <div id="home" class="tab-pane fade in active">
+	        <form  novalidate name="addOrgForm " class="col-xs-12 well" method="post"
+	        ng-submit="submitted=true;addOrg(addOrgForm.$valid)"  enctype="multipart/form-data">
+
+	 
+		      	<div class="form-group">
+		      		<div class="col-md-3">
+						<label class="control-label lb-signup">اسم المنظمة</label>
+		      		</div>
+		      		<div class="col-md-9">
+			        	<input type="text" class="wp-form-control wpcf7-text" id="exampleInputName1" placeholder="اسم المنظمة" name="orgName" ng-model="org.orgName" required maxlength="50">
+			 			<p class="validation" ng-if="addOrgForm.orgName.$error.required&&submitted">من فضلك ادخل اسم المنظمة</p>
+			  
+			 			<div ng-repeat="err in  orgErrors.orgName ">
+			  				<span class="validation">{{err}}</span>
+						</div>
+		      		</div>
+		  		</div>
+		  		<div class="form-group">
+		  			<div class="col-md-3">
+		  				<label class="control-label lb-signup">البريد الالكتروني</label>
+		  			</div>
+		  			<div class="col-md-9">
+				    	<input type="email" class="wp-form-control wpcf7-email" 
+				      	placeholder="البريد الالكتروني" ng-model="org.email" name="email" required maxlength="50">
+						<p class="validation" ng-if="addOrgForm.email.$error.required&&submitted">من فضلك ادخل البريد الالكتروني</p>
+						<p class="validation" ng-if="addOrgForm.email.$error.email&&submitted">لك ادخل البريد الالكتروني بشكل صحيح</p>
+				 		
+				 		<div ng-repeat="err in orgAsUserErrors.email ">
+				  			<p class="validation" >{{err}}</p>
+			  			</div>
+					</div>
+		  		</div>
+
+		  		<div class="form-group">
+		  			<div class="col-md-3">
+		    			<label class="control-label lb-signup" for="exampleInputPassword1">كلمة السر</label>
+		    		</div>
+		    		<div class="col-md-9">
+			    		<input type="password" class="wp-form-control wpcf7-password" id="exampleInputPassword1" placeholder="كلمة السر" name="password" ng-model="org.password" required maxlength="50">
+			    		<p class="validation" ng-if="addOrgForm.password.$error.required&&submitted">من فضلك ادخل الرقم السري</p>
+
+						<div ng-repeat="passErr in orgAsUserErrors.password">
+			  				<span class="validation">{{passErr}}</span>
+						</div>
+		    		</div>	
+				</div>
+
+		  		<div class="form-group">
+		  			<div class="col-md-3">
+		    			<label class="control-label lb-signup" for="exampleTextarea">وصف المنظمة</label>
+		    		</div>
+		    		<div class="col-md-9">
+			    		<textarea class="wp-form-control wpcf7-textarea" id="exampleTextarea" rows="3" class="validation" name="desc" ng-mode="org.description" placeholder ="وصف المنظمة">
+			    		</textarea>
+		    		</div>
+		  		</div>
+			  	<div class="form-group">
+			  		<div class="col-md-3">
+			  			<label class="control-label lb-signup">المنطقة</label>
+			  		</div>
+			  		<div class="col-md-9">	
+						<input type="text" class="wp-form-control wpcf7-text" 
+						id="exampleInputRegion" placeholder="المنطفة" name="region" ng-model="org.region" required maxlength="50">
+			 
+						<p class="validation" ng-if="addOrgForm.region.$error.required&&submitted" >من فضلك ادخل اسم المنطقة</p>
+						<div ng-repeat="err in orgAsUserErrors.region">
+			  				<span class="validation" >{{err}}</span>
+						</div>
+					</div>	
+				</div>
+			  	<div class="form-group">
+			  		<div class="col-md-3">
+			  			<label class="control-label lb-signup" for="exampleInputCity">المدينة</label>
+			  		</div>
+			  		<div class="col-md-9">
+						<input type="text" class="wp-form-control wpcf7-text" 
+						id="exampleInputCity" placeholder="المدينة" name="city" ng-model="org.city" >
+						<p class="validation" ng-if="addOrgForm.city.$error.required&&submitted">من فضلك ادخل المدينة</p>
+						<div ng-repeat="err in orgAsUserErrors.city">
+				  			<span class="validation" >{{err}}</span>
+						</div>
+					</div>
+				</div>	
+				<div class="form-group">
+					<div class="col-md-3">
+			  			<label class="control-label lb-signup" for="exampleInputCity">العنوان بالتفصيل</label>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="wp-form-control wpcf7-text" 
+						id="exampleInputCity" placeholder="العنوان بالتفصيل" name="fullAddress" ng-model="org.fullAddress" required maxlength="50">
+						<div ng-repeat="err in orgErrors.fullAddress">
+				  			<span class="validation" >{{err}}</span>
+						</div>
+
+						<p class="validation" ng-if="addOrgForm.fullAddress.$error.required&&submitted">من فضلك ادخل العنوان بالتفصيل</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label lb-signup" for="exampleInputCity">مواعيد العمل</label>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="wp-form-control wpcf7-text" 
+						id="exampleInputCity" placeholder="مواعيد العمل" name="officeHours" ng-model="org.officeHours" required maxlength="100">
+						<p class="validation"  ng-if="addOrgForm.officeHours.$error.required&&submitted">من فضلك ادخل مواعيد العمل</p>
+						<div ng-repeat="err in orgErrors.officeHours">
+						  <span class="validation" >{{err}}</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-md-3"> 
+						<label class="control-label lb-signup">الاهتمامات</label> 
+					</div>
+					<div class="col-md-9">
+	             		<select class="selectpicker" multiple ng-model="org.category">
+				            <option   ng-true-value ="'مرأة'">مرأة</option>
+				            <option   ng-true-value="'تعليم'">تعليم</option>
+				            <option  ng-true-value="'صحة'">صحة</option>
+				            <option ng-true-value="'طفولة'">طفولة</option>
+				            <option ng-true-value="'بيئة'">بيئة</option>  
+			            </select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-md-3">
+				   		<label class="control-label lb-signup" for="exampleInputCity">رقم الترخيص</label>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="wp-form-control wpcf7-text" 
+						id="exampleInputCity" placeholder="رقم الترخيص" name="license_number" ng-model="org.license_number" required maxlength="50">
+
+						<p class="validation" ng-if="addOrgForm.license_number.$error.required&&submitted">من فضلك ادخل رقم الترخيص</p>
+						<div ng-repeat="err in orgErrors.license_number">
+						  <span class="validation">{{err}}</span>
+						</div>
+					</div>	
+				</div>
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label lb-signup">صورة الترخيص</label>
+					</div>
+					<div class="col-md-9"> 
+						<input type="file" class="wp-form-control wpcf7-text" name="license" onchange="angular.element(this).scope().setLicense(this.files)" required >
+
+						<p class="validation"  ng-if="addOrgForm.license.$error.required&&submitted">من فضلك ارفق صورة<الترخيص</p>
+						 
+						<div ng-repeat="err in orgErrors.licenseScan ">
+						  <span class="validation" >{{err}}</span>
+						</div>
+					</div>	
+				</div>
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label lb-signup">اللوجو</label>
+					</div>
+					<div class="col-md-9">
+						<input class="wp-form-control wpcf7-text" type="file" name="logo" onchange="angular.element(this).scope().setLogo(this.files)">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-3">
+						
+					</div>
+					<div class="col-md-9">
+						<button class="btn btn-info wpcf7-submit">اشترك</button>
+					</div>
+				</div>
+				
+				
+				
+			</form>
+		</div>
+		<div id="menu1" class="tab-pane fade">
+		    <form  novalidate name="addUserForm" class="col-xs-12 well" method="post" ng-submit="submited=true;addUser(addUserForm.$valid)">
+		    
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label lb-signup" for="exampleInputfirstName1">الاسم الأول</label>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="wp-form-control wpcf7-text" id="exampleInputName1" placeholder="الاسم الأول" name="firstName" ng-model="user.firstName" required maxlength="50">
+				 		<p class="validation" ng-if="addUserForm.firstName.$error.required&&submited">من فضلك ادخل الاسم الاول </p>
+				 		<p class="validation" ng-if="addUserForm.firstName.$error.maxlength">الاسم يجب أن يكون أكثر من 50 حروف </p>
+						<div ng-repeat="err in volerror.firstName ">
+				  			<span class="validation">{{err}}</span>
+				 		</div>
+					</div>
+			  	</div>
+			  	<div class="form-group">
+			  		<div class="col-md-3">
+						<label class="control-label lb-signup" for="exampleInputlastName1">الاسم الثاني</label>
+			  		</div>
+			  		<div class="col-md-9">
+						<input type="text" class="wp-form-control wpcf7-text" id="exampleInputName2" placeholder="الاسم الثاني" ng-model="user.secondName" name="secondName" required maxlength="50">
+						<p class="validation" ng-if="addUserForm.secondName.$error.required&&submited">من فضلك ادخل الاسم الثاني</p>
+						<p class="validation" ng-if="addUserForm.secondName.$error.maxlength">الاسم يجب أن يكون أكر من 50 حروف </p>
+						<div ng-repeat="err in volerror.secondName ">
+				  			<span class="validation">{{err}}</span>
+				 		</div>
+			  		</div>
+			  	</div>
+			  	<div class="form-group">
+			  		<div class="col-md-3">
+			    		<label class="control-label lb-signup">البريد الالكتروني</label>
+			  		</div>
+			  		<div class="col-md-9">
+				    	<input type="email" class="wp-form-control wpcf7-email" id="exampleInputEmail1" placeholder="البريد الالكتروني" ng-model="user.email" name="email" required maxlength="50">
+
+				     	<p class="validation" ng-if="addUserForm.email.$error.required&&submited"> من فضلك ادخل البريد الالكتروني</p>
+				     	<p class="validation" ng-if="addUserForm.email.$error.email&&submited">من فضلك ادخل بريد الكتروني صحيح</p>
+						<div ng-repeat="err in userAsVolErros.email ">
+				  			<span class="validation">{{err}}</span>
+				 		</div>
+			  		</div>
+			 	</div>	
+			  	<div class="form-group">
+			  		<div class="col-md-3">
+			    		<label class="control-label lb-signup" for="exampleInputPassword1">كلمة السر</label>
+			  		</div>
+			  		<div class="col-md-9">
+				    	<input type="password" class="wp-form-control wpcf7-password" id="exampleInputPassword1" placeholder="كلمة السر" name="password" ng-model="user.password" required maxlength="50">
+
+						<p class="validation" ng-if="addUserForm.password.$error.required&&submited">من فضلك ادخل رقم سري</p>
+						<div ng-repeat="err in userAsVolErros.password ">
+				  			<span class="validation">{{err}}</span>
+				 		</div>
+			  		</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-3">
+			  			<label class="control-label lb-signup">المنطقة</label>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="wp-form-control wpcf7-text"
+				  		placeholder="المنطقة" name="region" ng-model="user.region" required maxlength="50">
+						<p class="validation" ng-if="addUserForm.region.$error.required&&submited">من فضلك ادخل اسم المنطقة</p>
+						<div ng-repeat="err in userAsVolErros.region ">
+				  			<span class="validation">{{err}}</span>
+				 		</div>
+				 	</div>	
+				</div> 
+				<div class="form-group">
+					<div class="col-md-3">
+			    		<label class="control-label lb-signup" for="exampleInputCity">المدينة</label>
+					</div>
+					<div class="col-md-9">
+						<input type="text" class="wp-form-control wpcf7-text" 
+						id="exampleInputCity" placeholder="المدينة" name="city" ng-model="user.city" required maxlength="50">
+						<p class="validation" ng-if="addUserForm.city.$error.required&&submited"> من فضلك ادخل اسم المدينة</p>
+						<div ng-repeat="err in userAsVolErros.city ">
+				  			<span class="validation">{{err}}</span>
+				 		</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-md-3"> 
+						<label class="control-label lb-signup">الاهتمامات</label> 
+					</div>
+					<div class="col-md-9">
+					 	<select class="selectpicker" multiple ng-model="user.category">
+		              		<option   ng-true-value ="'مرأة'">مرأة</option>
+		              		<option   ng-true-value="'تعليم'">تعليم</option>
+		              		<option  ng-true-value="'صحة'">صحة</option>
+		              		<option ng-true-value="'طفولة'">طفولة</option>
+		              		<option ng-true-value="'بيئة'">بيئة</option>  
+		            	</select>
+					</div>
+				</div>
+				
+			    <div class="form-group">
+			    	<div class="col-md-3">
+			 			<label class="control-label lb-signup">النوع</label>
+			    	</div>
+			    	<div class="col-md-9">
+				        <input type="radio" class="form-check-input" name="gender" 
+				        id="optionsRadios1" value="male" checked ng-model="user.gender" required>
+				      	<label class="form-check-label">ذكر</label>
+				    
+				        <input type="radio" class="form-check-input" name="gender" id="optionsRadios2" value="female"  ng-model="user.gender" required>
+
+				    	<label class="form-check-label">
+				        انثي</label>
+				    	<p class="validation" ng-if="addUserForm.gender.$error.required&&submited">من فضلك ادخل النوع</p>
+				    	<div ng-repeat="err in volerror.gender">
+				  			<span class="validation">{{err}}</span>
+				 		</div>
+			    	</div>
+			 	</div>
+			 	
+				<div class="form-group">
+			 		<div class="col-md-3">
+			  			<label class="control-label lb-signup">الصورة الشخصية</label>
+			 		</div>
+			 		<div class="col-md-9">
+			 			<input class="wp-form-control wpcf7-text" type="file" name="profilePic" onchange="angular.element(this).scope().setProfilePic(this.files)">
+			 		</div>
+				</div>
+				
+		  		<button class="wpcf7-submit">اشترك</button>
+					
+			</form>
+		</div>
+	</div>
+</div>
+  

@@ -1,0 +1,101 @@
+
+	<div class="row">
+	    <!-- <div class="col-md-9">
+	    	
+		        <div ng-if="selected">
+					<div ng-repeat="SelectedName in selected">
+					<div class="col-xs-4 sss">
+				    	<div class="post">
+				    		<h2>{{ SelectedName.name }}</h2>
+			              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+			              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			            </div>
+				    	</div>
+			        </div>
+				</div>
+
+				<div ng-if="selecteded">
+					<div ng-repeat="SelectedName in selecteded">
+					<div class="col-xs-4 sss">
+				    	<div class="post">
+				    		<h2>{{ SelectedName.country }}</h2>
+			              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+			              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			            </div>
+				    	</div>
+			        </div>
+				</div>
+	    </div> -->
+
+
+	    <div class="col-md-9 bord">
+	    	<!-- <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"> -->
+	          
+	          	<input type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" value="الخيارات :">
+	          <div id="demo" class="collapse">
+	            <div class="list-group " ng-repeat="sel in cat">
+		          
+		            <input type="checkbox" name="" ng-model="selected" ng-checked="exist(sel)" ng-click="toggleSelection(sel)">{{sel.name}}
+		          </div>  
+	          </div>
+	          <!-- <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"> -->
+	         
+	          	<h2><input type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2" value="المكان :"></h2>
+	          <div id="demo2" class="collapse">
+		          <div class="list-group" ng-repeat="seel in use">
+		            <input type="checkbox" name="" ng-model="selecteded" ng-checked="exist(seel)" ng-click="toggleSelection(seel)">{{seel.country}}
+		          </div>  
+	          </div>
+	        
+	    <!-- </div> -->    
+		
+        </div><!--/.sidebar-offcanvas-->
+	</div>
+
+
+<!-- reallllllllllllllllllllllllllllllllllllllllllll -->
+
+<!-- 
+<div class="col-lg-4 col-md-4 col-sm-4">
+    <div class="courseArchive_sidebar"> -->
+      <!-- start single sidebar -->
+   <!--    <div class="single_sidebar">
+        <a><input type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" value="أهم القصص :"><span class="fa fa-angle-double-left"></span></a>
+            <div id="demo" class="collapse">
+            <div class="list-group " ng-repeat="sel in cat">
+		       
+		            <input type="checkbox" name="" ng-model="selected" ng-checked="exist(sel)" ng-click="toggleSelection(sel)">{{sel.name}}
+		        
+	          </div>
+          </div>
+      </div> -->
+      <!--  --> 
+     <!--  <div class="single_sidebar">
+        <a><input type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo2" value="أهم القصص :"><span class="fa fa-angle-double-left"></span></a>
+            <div id="demo2" class="collapse">
+            <div class="list-group " ng-repeat="seel in use">
+	          <input type="checkbox" name="" ng-model="selected" ng-checked="exist(seel)" ng-click="toggleSelection(seel)">{{seel.country}} -->
+
+	            <!--  ng-repeat="sel in cat" <input type="checkbox" name="" ng-model="selected" ng-checked="exist(sel)" ng-click="toggleSelection(sel)">{{sel.name}}
+	             -->
+	      <!--     </div>
+          </div>
+      </div> -->
+      <!--  --> 
+      <!-- <div class="single_sidebar">
+        <a><input type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo3" value="أهم القصص :"><span class="fa fa-angle-double-left"></span></a>
+            <div id="demo3" class="collapse">
+            <div class="list-group ">
+	          <p>gggggggggggggggggggggggggggg</p>
+	          <p>gggggggggggggggggggggggggggg</p> -->
+
+	            <!--  ng-repeat="sel in cat" <input type="checkbox" name="" ng-model="selected" ng-checked="exist(sel)" ng-click="toggleSelection(sel)">{{sel.name}}
+	             -->
+	         <!--  </div>
+          </div>
+      </div> -->
+    <!-- </div>  
+</div>  -->
+
+       
+     

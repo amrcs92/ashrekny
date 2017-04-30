@@ -1,0 +1,116 @@
+<div class="container">
+	<p style="padding:40px;"></p>
+	<div class="row">
+		<div class="col-md-12 col-lg-12">
+			<form  novalidate name="addOrgForm"
+			class="col-xs-9 well" method="post"
+ 			ng-submit="submitted=true;updateUser(addOrgForm.$valid)"  enctype="multipart/form-data">
+
+				<div class="form-group">
+					<label>اسم المنظمة</label>
+					<input type="text" class="wp-form-control wpcf7-text" id="exampleInputName1" placeholder="اسم المنظمة" name="orgName" ng-model="org.name" required maxlength="50">
+ 					
+ 					<p class="validation" ng-if="addOrgForm.orgName.$error.required&&submitted">من فضلك ادخل اسم المنظمة</p>
+  
+ 					<div ng-repeat="err in orgErrors.name ">
+  						<span class="validation">{{err}}
+  						</span>
+					</div>
+  				</div>
+				
+				<div class="form-group">
+					<label>البريد الالكتروني</label>
+	    			<input type="email" class="wp-form-control wpcf7-email" placeholder="البريد الالكتروني" ng-model="user.email" name="email" required maxlength="50">
+					
+					<p class="validation" ng-if="addOrgForm.email.$error.required&&submitted">من فضلك ادخل البريد الالكتروني</p>
+					
+					<p class="validation" ng-if="addOrgForm.email.$error.email&&submitted">لك ادخل البريد الالكتروني بشكل صحيح</p>
+	 				<div ng-repeat="err in orgAsUserErrors.email ">
+	  					<p class="validation" >{{err}}
+	  					</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+    				<label for="exampleInputPassword1">كلمة السر</label>
+    				<input type="password" class="wp-form-control wpcf7-password" 
+    				id="exampleInputPassword1" placeholder="كلمة السر" name="password" ng-model="org.password"  maxlength="50">
+    				
+    				<p  class="validation" ng-if="addOrgForm.password.$error.required&&submitted">من فضلك ادخل الرقم السري</p>
+					<div ng-repeat="passErr in orgAsUserErrors.password">
+  						<span class="validation">{{passErr}}</span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="exampleTextarea">وصف المنظمة</label>
+					<textarea class="wp-form-control wpcf7-textarea" id="exampleTextarea" rows="3" 
+					class="validation" name="desc" ng-model="org.description" placeholder ="وصف المنظمة">
+					</textarea>
+				</div>
+ 				<div class="form-group">
+  					<label >البلد</label>
+					<input type="text" class="wp-form-control wpcf7-text"
+					id="exampleInputRegion" placeholder="البلد" name="country" ng-model="user.country" required maxlength="50">
+ 
+					<p class="validation" ng-if="addOrgForm.country.$error.required&&submitted" >من فضلك ادخل اسم البلد</p>
+					<div ng-repeat="err in orgAsUserErrors.country">
+  						<span class="validation" >{{err}}
+  						</span>
+					</div>
+				</div>
+				<div class="form-group">
+  					<label >المنطقة</label>
+					<input type="text" class="wp-form-control wpcf7-text"
+					id="exampleInputRegion" placeholder="المنطفة" name="region" ng-model="user.region" required maxlength="50">
+ 
+					<p class="validation" ng-if="addOrgForm.region.$error.required&&submitted" >من فضلك ادخل اسم المنطقة</p>
+					<div ng-repeat="err in orgAsUserErrors.region">
+  						<span class="validation" >{{err}}
+  						</span>
+					</div>
+				</div>
+				<div class="form-group">
+  					<label for="exampleInputCity">المدينة
+  					</label>
+					<input type="text" class="wp-form-control wpcf7-text" 
+					id="exampleInputCity" placeholder="المدينة" name="city" ng-model="user.city" >
+					<p class="validation" ng-if="addOrgForm.city.$error.required&&submitted">من فضلك ادخل المدينة</p>
+
+					<div ng-repeat="err in orgAsUserErrors.city">
+  						<span class="validation" >{{err}}
+  						</span>
+					</div>
+				</div>
+				<div class="form-group">
+  					<label for="exampleInputCity">العنوان بالتفصيل</label>
+					<input type="text" class="wp-form-control wpcf7-text" 
+					id="exampleInputCity" placeholder="العنوان بالتفصيل" name="fullAddress" ng-model="org.full_address" required maxlength="50">
+					<div ng-repeat="err in orgErrors.fullAddress">
+  						<span class="validation" >{{err}}</span>
+					</div>
+					<p class="validation" ng-if="addOrgForm.fullAddress.$error.required&&submitted">من فضلك ادخل العنوان بالتفصيل</p>
+				</div>
+				<div class="form-group">	
+					<label for="exampleInputCity">مواعيد العمل</label>
+					<input type="text" class="wp-form-control wpcf7-text" 
+					id="exampleInputCity" placeholder="مواعيد العمل" name="officeHours" ng-model="org.openning_hours" required maxlength="100">
+					<p class="validation" ng-if="addOrgForm.officeHours.$error.required&&submitted">من فضلك ادخل مواعيد العمل</p>
+					<div ng-repeat="err in orgErrors.officeHours">
+  						<span class="validation" >{{err}}
+  						</span>
+					</div>
+				</div> 
+
+				<div class="form-group">	
+					<label >اللوجو</label>
+ 					<input type="file" name="logo" onchange="angular.element(this).scope().setLogo(this.files)">
+				</div>
+				<div class="form-group">
+	  				<button class="btn btn-info wpcf7-submit">حفظ</button>
+	  				<button class="btn btn-info wpcf7-submit">إلغاء</button>
+  				</div>
+			</form>
+		</div>
+	</div>
+</div>

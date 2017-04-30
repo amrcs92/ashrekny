@@ -1,0 +1,15 @@
+div .jumbotron{
+	border-radius: 10px;
+}
+.details li{
+  list-style: none;
+}
+li{
+  margin-bottom:10px;
+}
+h2{
+	color: #ff9933;
+}
+li{
+	color: #78adc9;
+}

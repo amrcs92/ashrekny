@@ -1,0 +1,243 @@
+<link rel="stylesheet" href="app/bower_components/country-select-js/build/css/countrySelect.css">
+<link rel="stylesheet" href="app/bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="css/droid-sans.css" />
+ <!--=========== BEGIN CONTACT SECTION ================
+    <section id="contact">
+      <div class="container">
+       <div class="row">
+         <div class="col-lg-9 col-md-9 col-sm-9">
+           <div class="contact_form wow fadeInLeft">
+              </form> -->
+           <p></p>   
+<section id="courseArchive">
+<form name="eventForm" novalidate ng-submit="add(eventForm.$valid)" class="well eventForms"  method="POST"  id="addEventForm" enctype="multipart/form-data">
+<fieldset>
+<!-- Form Name -->
+<legend>أضف مبادرة</legend>
+
+<!-- Text input-->
+
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">اسم المبادرة</label>
+  <div class="col-md-7">
+  <input required ng-model="newEvent.title"  name="title" placeholder="العنوان" class="wp-form-control wpcf7-text"  type="text">
+ </div>
+  </div>
+
+<!-- Text area -->
+  
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">وصف الإيفنت</label>
+    <div class="col-md-7">
+
+          <textarea required ng-model="newEvent.description" class="wp-form-control wpcf7-textarea" name="description" placeholder="الوصف"></textarea>
+
+  </div>
+
+</div>
+
+<!-- Text input-->
+  <div class="form-group col-md-12">
+  <div class="col-md-1"></div>
+  <label class="col-md-2 control-label">تاريخ البدء</label> 
+    <div class="col-md-7">
+    
+  <input required ng-model="newEvent.start_date" name="start_date" class="wp-form-control  wpcf7-text" id="startDate">
+   
+  </div>
+  
+</div>
+
+<!-- Text input-->
+       <div class="form-group col-md-12">
+       <div class="col-md-1"></div>
+  <label class="col-md-2 control-label">تاريخ الانتهاء</label>  
+    <div class="col-md-7">
+   
+  <input ng-model="newEvent.end_date" name="end_date" class="wp-form-control  wpcf7-text" id="endDate">
+  
+  </div>
+</div>
+
+<!-- Select Basic -->
+   
+<div class="form-group col-md-12"> 
+  <div class="col-md-1"></div>
+  <label class="col-md-2 control-label">البلد</label>
+    
+    <!-- <select id="country" required ng-model="newEvent.country" name="country" class="wp-form-control  wpcf7-text" >
+      <option>Country</option>
+      <option>Egypt</option>
+      <option>Kuwait</option>
+      <option>Saudi</option>
+    </select> -->
+    <div class="col-md-7">
+    <input id="country" required ng-model="newEvent.country" name="country" class="wp-form-control wpcf7-text" >
+      
+
+    </div>
+</div>
+
+<!-- Text input-->
+ 
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">المحافظة</label>  
+    <div class="col-md-7">
+    <select id="city" required ng-model="newEvent.city" name="city" class="wp-form-control  wpcf7-text" >
+      <option>الإسكندرية</option>
+      <option>الإسماعيلية</option>
+      <option>أسوان</option>
+      <option>أسيوط</option>
+      <option>الأقصر</option>
+      <option>الغردقة</option>
+      <option>البحيرة</option>
+      <option>بني سويف</option>
+      <option>بورسعيد</option>
+      <option>جنوب سيناء</option>
+      <option>الدقهلية</option>
+      <option>دمياط</option>
+      <option>أسوهاج</option>
+      <option>السويس</option>
+      <option>الشرقية</option>
+      <option>شمال سيناء</option>
+      <option>الغربية</option>
+      <option>القاهرة</option>
+      <option>القليوبية</option>
+      <option>قنا</option>
+      <option>كفر الشيخ</option>
+      <option>مطروح</option>
+      <option>المنوفية</option>
+      <option>المنيا</option>
+      <option>الوادي الجديد</option>
+    </select>
+  <!-- <input required ng-model="newEvent.city" name="city" placeholder="المحافظة" class="wp-form-control  wpcf7-text"  type="text"> -->
+  </div>
+</div>
+
+<!-- Text input-->
+ 
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">المنطقة</label>  
+  <div class="col-md-7">     
+  <input required ng-model="newEvent.region" name="region" placeholder="المنطقة" class="wp-form-control  wpcf7-text"  type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+      
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">العنوان</label>  
+    <div class="col-md-7">
+  <input ng-model="newEvent.full_address" name="full_address" placeholder="العنوان" class="wp-form-control  wpcf7-text" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+      
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">صورة الإيفنت</label>  
+    <div class="col-md-7">
+  <input name="logo" onchange="angular.element(this).scope().uploadLogo(this.files)" placeholder="صورة الإيفنت" class="wp-form-control  wpcf7-text" type="file">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">الاحتياج</label> 
+
+    <div id="needs">
+      <div class="col-md-7">
+      
+        <div class="col-md-9">
+          
+              <input ng-model='newEvent.tasks[0].name' name='task' placeholder='الاحتياج' class='wp-form-control wpcf7-text'  type='text'>
+        </div>
+        
+        <div class='col-md-3'>
+          <input ng-model='newEvent.tasks[0].required_volunteers' placeholder='العدد' class='wp-form-control wpcf7-text'  type='number' min='0'>
+        </div>
+      
+      </div>
+    </div>
+  <div class="col-md-2">
+    <button class="btn btn-success wpcf7-submit" type="button" ng-click="add_need()">
+    <span class="glyphicon glyphicon-plus"></span></button>
+  </div>
+</div>
+
+<!-- Text input-->
+      
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">مجال النشاط</label> 
+
+    <div class="col-md-7">
+    
+      <label class="col-md-2 checkbox-inline"><input class="categories" type="checkbox" name="category[]" value="تعليم">تعليم</label>
+      <label class="col-md-2 checkbox-inline"><input class="categories" type="checkbox" name="category[]" value="صحة">صحة</label>
+      <label class="col-md-2 checkbox-inline"><input class="categories" type="checkbox" name="category[]" value="مرأة">مرأة</label>
+      <label class="col-md-2 checkbox-inline"><input class="categories" type="checkbox" name="category[]" value="طفولة">طفولة</label>
+      <label class="col-md-2 checkbox-inline"><input class="categories" type="checkbox" name="category[]" value="بيئة">بيئة</label>
+    
+  </div>
+
+</div>
+
+
+<!-- Text input-->     
+<div class="form-group col-md-12">
+<div class="col-md-1"></div>
+  <label class="col-md-2 control-label">مجالات أخرى</label>  
+    <div class="col-md-7">
+  <input ng-model="othercategory" name="category" placeholder="أخرى" class="wp-form-control  wpcf7-text" type="text">
+  </div>
+</div>
+
+
+<!-- Button -->
+<div class="form-group col-md-12">
+  <div class="col-md-4 col-md-offset-5">
+    <button class="wpcf7-submit" >إنشر  <span class="glyphicon glyphicon-send"></span></button>
+    <a href="javascript:history.back()" ><button type="button" class="wpcf7-delete"> إلغاء <i class="fa fa-ban"></i></span></button></a>
+  </div>
+</div>
+
+</fieldset>
+</form>
+           </div>
+         </div>
+       </div>
+      </div>
+    </section>
+    <!--=========== END CONTACT SECTION ================-->
+<script src="app/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="js/add-event.js"></script>
+
+<script src="app/bower_components/country-select-js/build/js/countrySelect.min.js"></script>
+<script src="app/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script>
+   $('#addEventForm').validate();
+    $('#country').countrySelect();
+    $('#startDate').datepicker({ dateFormat: 'yy-mm-dd',  minDate: 0 });
+   $('#endDate').datepicker({ dateFormat: 'yy-mm-dd', minDate: 0 });
+</script>
+ 
+<style>
+  .error{
+    color: red;
+  }
+  #addEventForm{
+    font-family: 'droid-sans';
+    font-size: 16px;
+  }
+  label{
+    color: #78adc9;
+  }
+</style>

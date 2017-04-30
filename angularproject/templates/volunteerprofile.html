@@ -1,0 +1,132 @@
+<div class="container">
+  <p style="padding: 40px;"></p>
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+          <h2>صفحتي</h2>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <a ng-show="currentUser.isVolunteer && volunteer.id==currentUser.role_id" href="./editMyProfile" class="btn btn-primary pull-left"><i class="fa fa-pencil-square-o fa-lg"></i></a>
+              <h3 class="panel-title">
+                {{volunteer.first_name}} {{volunteer.last_name}}
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> 
+                  <img alt="User Pic" src="../laravelproject/{{volunteer.profile_picture}}" class="img-circle img-responsive"> 
+                </div>
+                  
+                <div class=" col-md-9 col-lg-9"> 
+                    <table class="table volunter-tble">
+                      <tbody>
+                      <!-- <div star-Rating class="myRating" ng-model='volunteer.avg_rate'> -->
+                      <tr>
+                          <td class="block-title">التقييم</td>
+                          <td class="block-desc">
+                          <div star-Rating class="myRating" ng-model='volunteer.avg_rate'>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="block-title">الوظيفه</td>
+                          <td class="block-desc">
+                          <span>{{volunteer.work}}</span>
+                          </td>
+                        </tr>
+                        <tr>
+                        	<td class="block-title">العنوان</td>
+                        	<td class="block-desc">
+                          <span>{{user.country}}</span>
+                           - <span>{{user.city}}</span>-
+                            <span>{{user.region}}</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="block-title">الاهتمامت
+                          </td>
+                          <td class="block-desc">
+                            <span ng-repeat="category in categories">
+                              &nbsp; {{category.name}}
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="block-title">التليفون
+                          </td>
+                          <td class="block-desc">
+                            <span>{{volunteer.phone}}</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+            <div class="panel-footer">
+                <a href="./addstory" class="btn btn-success">أحكي قصه</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 tabvolunteer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                 <ul class="nav nav-tabs feed_tabs" id="myTab2">
+                    <li class="active">
+                      <a href="/#mystories" data-toggle="tab">قصصي</a>
+                    </li>
+                    <li>
+                      <a href="/#myevents" data-toggle="tab">إيفينتاتي</a>
+                    </li>
+                 </ul>
+              </div>
+            </div>
+             <!-- Tab panes -->
+              <div class="tab-content">
+                <!-- Start my stories tab content -->
+                <div class="tab-pane fade in active" id="mystories">
+                  <ul class="news_tab">
+                    <li>
+                      <div ng-repeat="story in stories" class="media">
+                        <!-- <div class="media-left">
+                          <a class="news_img img-circle img-responsive" href="./{{story.id}}/storydetails">
+                            <img class="media-object" src="../laravelproject/{{volunteer.profile_pricture}}" alt="img">
+                          </a>
+                        </div> -->
+                        <div class="media-body">
+                            <h3>
+                              <a href="./{{story.id}}/storydetails">{{story.title}}</a>
+                            </h3>
+                            <span>{{story.content | limitTo:filterDetailsLimit}}</span>
+                            <a href="./{{story.id}}/story/edit" ng-show="currentUser.isVolunteer && story.volunteer.id==currentUser.role_id"
+                             class="col-sm-offset-7"><button class="wpcf7-edit"> تعديل <i class="fa fa-pencil-square-o"></i></span></button></a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>                
+                </div>
+                <!-- Start my events tab content -->  
+                <div class="tab-pane fade " id="myevents">
+                  <ul class="news_tab">
+                      <li>
+                        <div ng-repeat="event in events" class="media">
+                          <div class="media-left">
+                            <a class="news_img" href="#">
+                              <img class="media-object" src="../laravelproject/{{event.logo}}" alt="img">
+                            </a>
+                          </div>
+                          <div class="media-body">
+                             <h3>
+                              <a href="./{{event.id}}/eventdetails">{{event.title}}</a>
+                             </h3>
+                             <span>{{event.description}}</span>
+                             <hr>
+                          </div>
+                        </div>                   
+                      </li>
+                    </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>

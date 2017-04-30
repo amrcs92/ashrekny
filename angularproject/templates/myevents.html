@@ -1,0 +1,37 @@
+<section id="courseArchive">
+    <div class="container">
+        <p style="padding-top:20px;"></p>
+        <div class="row">
+            <div ng-repeat="event in myevents ">                
+                    <!-- start single blog archive -->
+                    <div class="col-lg-9 col-9 col-sm-9">
+                        <div class="single_blog_archive wow fadeInUp ">
+                            <div class=" col-lg-3 blogimg_container event" >
+                              <a href="./{{myevents.id}}/eventdetails" class="blog_img">
+                                <img alt="img" src="../laravelproject/{{event.logo}}">
+                              </a>
+                            </div>
+                            <div class=" col-lg-6" >
+                                <h2 class="blog_title"><a href="./{{event.id}}/eventdetails">{{event.title}}</a></h2> </tt>
+                                <div star-Rating class="myRating" ng-model='event.avg_rate'></div><br>
+                                <br>
+                                <div class="blog_commentbox">
+                                  <p><i class="fa fa-clock-o"></i> الميعاد:{{event.start_date}} </p><br>
+                                  <p><i class="fa fa-map-marker"></i>المكان: {{event.full_address}}</p>                    
+                                </div>
+                                <p class="blog_summary"> {{event.description}} </p>
+                                <a class="blog_readmore" href="./{{event.id}}/eventdetails">التفاصيل</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End single blog archive -->                
+            </div>    
+            <!-- start previous & next button -->
+            <div class="col-lg-9 single_blog_prevnext">
+                <a href="#" class="prev_post wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft;"><i class="fa fa-angle-left"></i>Previous</a>
+                <a href="#" class="next_post wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">Next<i class="fa fa-angle-right"></i></a>
+            </div>
+
+        </div>
+    </div>
+</section>

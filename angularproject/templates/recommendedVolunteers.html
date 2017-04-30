@@ -1,0 +1,74 @@
+ <p style="padding:40px">Roma<p>
+
+     <!-- <div ng-repeat="volunteer in recommendedVolnteers">
+	<a href="./volunteerprofile/{{volunteer.id}}" >{{volunteer.first_name}}  {{volunteer.last_name}}</a>
+
+    
+  <input type="checkbox" ng-model="volunteer.selected" value="{{volunteer.id}}">
+  
+      
+</div>
+  <div class="form-group col-md-12">
+  <div class="col-md-4 col-md-offset-6">
+    <button class="wpcf7-submit" ng-click="invite()" > ادعهم <span class="glyphicon glyphicon-send"></span></button>
+     <button class="btn wpcf7-submit" ng-click="skip()"> 
+         تخطي<span class="glyphicon glyphicon-remove"></span></button>
+  </div>
+  
+</div>
+</div>
+  
+                    
+  	</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default widget">
+            <div class="panel-heading">
+                <i class="fa fa-lightbulb-o fa-2x"></i>
+                <h3 class="panel-title">
+                    هؤلاء المتطوعون اهتماماتهم قد تناسب ما تحتاج إليه، أرسل دعوة للمشاركة في الإيفنت لمن تراه مناسب</h3>
+                <span class="label label-info">
+                    78</span>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                  <div class="reloadpage" ng-repeat="volunteer in recommendedVolnteers">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-2 col-md-1">
+                                <img src="../laravelproject/{{volunteer.profile_picture}}" class="img-circle img-responsive" alt="" /></div>
+                            <div class="col-xs-10 col-md-11">
+                                <div>
+                                    <a href="./volunteerprofile/{{volunteer.id}}" >{{volunteer.first_name}}  {{volunteer.last_name}}</a>
+                                </div>
+                                <div star-Rating class="myRating" ng-model='volunteer.avg_rate'>
+                                
+                                <input type="checkbox" ng-model="volunteer.selected" value="{{volunteer.id}}" ng-hide="{{volunteer.invited}}">
+                                
+                                <!-- <div class="action">
+                                    <button type="button" class="btn btn-primary btn-xs" title="Edit">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-xs" title="Approved">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </li>
+                  </div>
+                </ul>
+                <!-- <a href="#" class="btn btn-primary btn-sm btn-block" role="button"><span class="glyphicon glyphicon-refresh"></span> More</a> -->
+                <div class="col-md-offset-5">
+                  <button class="wpcf7-submit" ng-click="invite()" > ادعهم <span class="glyphicon glyphicon-send"></span></button>
+                  <button class="btn wpcf7-delete" ng-click="skip()"> 
+                  تخطي<span class="glyphicon glyphicon-remove"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="container">
+  <p style="padding: 40px;"></p>
+  <form  novalidate name="addUserForm" class="col-xs-9 well" method="post" 
+   ng-submit="submited=true;updateUser(addUserForm.$valid)">
+      
+    <div class="form-group">
+
+      <label for="exampleInputfirstName1">الاسم الأول</label>
+      <input type="text" class="wp-form-control wpcf7-text" id="exampleInputName1" placeholder="الاسم الأول" name="firstName" ng-model="volunteer.first_name" required maxlength="50">
+      <p class="validation" ng-if="addUserForm.firstName.$error.required&&submited">من فضلك ادخل الاسم الاول </p>
+      <p class="validation" ng-if="addUserForm.firstName.$error.maxlength">الاسم يجب أن يكون أكثر من 50 حروف </p>
+      <div ng-repeat="err in volerror.firstName ">
+        <span class="validation">{{err}}</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputlastName1">الاسم الثاني</label>
+      <input type="text" class="wp-form-control wpcf7-text" id="exampleInputName2" placeholder="الاسم الثاني" ng-model="volunteer.last_name" name="secondName" required maxlength="50">
+      <p class="validation" ng-if="addUserForm.secondName.$error.required&&submited">من فضلك ادخل الاسم الثاني</p>
+      <p class="validation" ng-if="addUserForm.secondName.$error.maxlength">الاسم يجب أن يكون أكر من 50 حروف </p>
+      <div ng-repeat="err in volerror.secondName ">
+        <span class="validation">{{err}}</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>البريد الالكتروني</label>
+      <input type="email" class="wp-form-control wpcf7-email" id="exampleInputEmail1" placeholder="البريد الالكتروني"ng-model="user.email" name="email" required maxlength="50">
+       <p class="validation" ng-if="addUserForm.email.$error.required&&submited"> من فضلك ادخل البريد الالكتروني</p>
+       <p class="validation" ng-if="addUserForm.email.$error.email&&submited">من فضلك ادخل بريد الكتروني صحيح</p>
+      <div ng-repeat="err in userAsVolErros.email ">
+        <span class="validation">{{err}}</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">كلمة السر الجديدة</label>
+      <input type="password" class="wp-form-control wpcf7-password"
+      id="exampleInputPassword1" placeholder="كلمة السر" name="password" ng-model="user.password" maxlength="50">
+   
+      <div ng-repeat="err in userAsVolErros.password ">
+        <span class="validation">{{err}}</span>
+      </div>
+    </div>
+  
+  <div class="form-group">
+    <label >المنطقة</label>
+    <input type="text" class="wp-form-control wpcf7-text"
+    placeholder="المنطقة" name="region" ng-model="user.region" required maxlength="50">
+    <p class="validation" ng-if="addUserForm.region.$error.required&&submited">من فضلك ادخل اسم المنطقة</p>
+    <div ng-repeat="err in userAsVolErros.region ">
+      <span class="validation">{{err}}</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputCity">المدينة</label>
+    <input type="text" class="wp-form-control wpcf7-text" 
+    id="exampleInputCity" placeholder="المدينة" name="city" ng-model="user.city" required maxlength="50">
+    <p class="validation" ng-if="addUserForm.city.$error.required&&submited"> من فضلك ادخل اسم المدينة</p>
+    <div ng-repeat="err in userAsVolErros.city ">
+      <span class="validation">{{err}}</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-3"> 
+      <label class="control-label">الاهتمامات</label> 
+    </div>
+    <div class="col-md-9">
+        <select class="selectpicker" multiple ng-model="category.name">
+          <option ng-true-value ="'مرأة'">مرأة</option>
+          <option ng-true-value="'تعليم'">تعليم</option>
+          <option ng-true-value="'صحة'">صحة</option>
+          <option ng-true-value="'طفولة'">طفولة</option>
+          <option ng-true-value="'بيئة'">بيئة</option>  
+        </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label >العمل الحالي</label>
+    <input type="text" class="wp-form-control wpcf7-text" 
+    placeholder="العمل الحالي" name="work" ng-model="volunteer.work"  maxlength="50">
+
+    <div ng-repeat="err in userAsVolErros.work ">
+      <span class="validation">{{err}}</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label >رقم الموبيل</label>
+    <input type="text" class="wp-form-control wpcf7-text" 
+    placeholder="رقم الموبيل" name="phone" ng-model="volunteer.phone"  maxlength="20">
+   
+    <div ng-repeat="err in userAsVolErros.phone ">
+      <span class="validation">{{err}}</span>
+    </div>
+  </div>
+  <legend>النوع</legend>
+    <div class="form-group">
+      <label class="form-check-label">ذكر</label>
+      <input type="radio" class="form-check-input" name="gender" id="optionsRadios1" value="male" checked ng-model="volunteer.gender" required>
+    
+      <label class="form-check-label">انثي</label>
+      <input type="radio" class="form-check-input" name="gender" id="optionsRadios2" value="female"  ng-model="volunteer.gender" required>
+      <p class="validation" ng-if="addUserForm.gender.$error.required&&submited">من فضلك ادخل النوع</p>
+    </div>
+    <div ng-repeat="err in volerror.gender">
+      <span class="validation">{{err}}</span>
+    </div>
+
+    <div class="form-group">
+      <label >الصورة الشخصية</label>
+      <input type="file" name="profilePic" onchange="angular.element(this).scope().setProfilePic(this.files)">
+    </div>
+    <button class="wpcf7-submit">حفظ</button>
+    <button class="wpcf7-submit">إلغاء</button>
+  </form>
+</div>

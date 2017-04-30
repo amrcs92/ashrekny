@@ -1,0 +1,151 @@
+<link  href="app/bower_components/angular-input-stars/angular-input-stars.css" rel="stylesheet"></link>
+
+<section >
+  <!-- slider -->
+  <div class="row">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" ng-show="albums !=null">
+            <!-- Indicators -->
+            
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item active">
+                <img src="../laravelproject/{{albums[0].photo_link}}" alt="img"> 
+              </div>
+              <!-- ng-repeat="album in albums " -->
+              <div ng-repeat="album in albums" class="item">
+                <img src="../laravelproject/{{album.photo_link}}" alt="img">
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+          </div>
+    </div>
+</section> 
+    <!--=========== BEGIN EVENT BANNER SECTION ================-->
+    <section id="courseArchive">
+      <div class="container">
+        <div class="row">
+          <!-- start course content -->
+          <div class="col-lg-12 col-md-12 col-sm-8">
+            <div class="courseArchive_content">
+              <!-- start blog archive  -->
+              <div class="row">
+                <!-- start single blog -->
+                <h2 class="blog_title text-center">{{eventDetails.title}}</h2>
+                <div star-Rating class="myRating text-center" ng-model='eventDetails.avg_rate'></div>
+                <a class="pull-left" href="./getvolunteers/{{eventDetails.id}}" ng-show="currentUser.isVolunteer==false && eventDetails.organization_id==currentUser.role_id" ><button class="wpcf7-edit"> تقييم المشاركين <i class="fa fa-pencil-square-o"></i></button></a>
+                <hr>
+                <div class="col-lg-6 col-6 col-sm-6">
+                  <div class="single_blog">                    
+                    <h3>نشر بواسطة: {{eventDetails.organization.name}}</h3>
+                    <p>{{eventDetails.description}}</p> 
+                    <div class="blog_commentbox">
+                      <h3>تصنيفات:</h3>
+                      <div ng-repeat="category in eventDetails.categories">
+                        {{category.name}}
+                      </div><br>
+                      <p><i class="fa fa-clock-o"></i><strong>الميعاد من:</strong>{{eventDetails.start_date}} - الى: {{eventDetails.end_date}}</p><br>
+                      <p><i class="fa fa-map-marker"></i>
+                          <strong>المكان:</strong>{{eventDetails.full_address}} <br>
+                          {{eventDetails.region}},{{eventDetails.city}},{{eventDetails.country}}
+                      </p>                      
+                    </div> 
+                  </div>
+                  <a class="pull-left" href="./{{eventDetails.id}}/getrecommendedvolunteers" ng-show="currentUser.isVolunteer==false && eventDetails.organization_id==currentUser.role_id" ><button class="wpcf7-submit"> اقتراحات <i class="fa fa-lightbulb-o"></i></button></a>
+                    <a class="pull-left" href="./{{eventDetails.id}}/eventdetails/edit" ng-show="currentUser.isVolunteer==false && eventDetails.organization_id==currentUser.role_id" ><button class="wpcf7-edit"> تعديل <i class="fa fa-pencil-square-o"></i></button></a>             
+                </div>
+                <!--table-->
+                <div class="col-lg-6 col-6 col-sm-6">
+                  <!-- start table tasks -->
+                  <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>المطلوب</th>
+                          <th>العدد المطلوب</th>
+                          <th>عدد المشاركات</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="task in eventDetails.tasks">
+                            <td>{{task.name}}</td>
+                            <td>{{task.required_volunteers}}</td>
+                            <td>{{task.going_volunteers}}</td>
+                            <td> <a class="btn btn-info " href="#" ng-show="currentUser.isVolunteer" ng-click="participate(task)" > اشترك
+                                     <span class="glyphicon glyphicon-plus-sign"></span> 
+                                 </a>
+                            </td>
+                            <td> <a class="btn btn-info" href="#" 
+                            ng-show="currentUser.isVolunteer" 
+                             ng-click="cancelparticipate(task)"> الغاء الاشتراك
+                                   <span class="glyphicon glyphicon-plus-sign"></span> 
+                                 </a>
+                            </td>
+                            <td> <p ng-show="is_participated">أنت مشترك بالفعل!</p> </td>
+                        </tr>
+                      </tbody>
+                  </table>
+                  <!-- end table tasks-->
+
+                </div>
+                <!-- End single blog -->                
+              </div>
+              <!-- end blog archive  -->          
+            </div>
+          </div>
+          <!-- End course content -->
+        </div>
+      </div>
+    </section>
+    <!--=========== END EVENT BANNER SECTION ================--> 
+
+    <!--=========== START POST EVENT REVIEW BANNER SECTION ================--> 
+    <section ng-show="currentUser.isVolunteer">
+      <div class="row">
+         <div class="col-lg-8 col-md-8 col-sm-8 col-sm-offset-2">
+            <div class="contact_form wow fadeInLeft">
+                <form class="well submitphoto_form" novalidate method = "POST" 
+                ng-submit="postreview(review,eventDetails.id)" name="reviewForm">  
+
+                  <input type="text" class="wp-form-control wpcf7-text" name="comment" ng-model="review.comment" placeholder="اكتب تقييم">
+                  <input-stars required max="5" ng-model="review.rate"></input-stars>                      
+                  <input type="submit" value="ارسال" class="wpcf7-submit">
+                </form>
+            </div>
+         </div>
+      </div>
+    </section>
+    <!--=========== END POST EVENT REVIEW BANNER SECTION ================-->
+
+    <!--=========== START SHOW EVENT REVIEW BANNER SECTION ================--> 
+    <section>
+      <div class="row">
+         <div class="col-lg-8 col-md-8 col-sm-8 col-sm-offset-2">
+            <div class="comments-list">
+                <div class="page-header">
+                  <h1>التعليقات <small class="pull-left">{{eventDetails.reviewsCount}} تعليقات</small></h1>
+                </div>
+                <div class="media" ng-repeat="review in eventDetails.reviewsvolunteers"> 
+                   <p class="pull-left"><small>{{review.created_at | date:'dd/mm/yyyy' }}</small>
+                      <p star-Rating class="myRating text-center" ng-model='review.rate'></p>
+                   </p>
+                    <a class="media-left" href="#">
+                      <img class ="profileimg" src="../laravelproject/{{review.volunteer.profile_picture}}" alt="profile pic">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading user_name">{{review.volunteer.first_name}}</h4>
+                      <p>{{review.comment}}</p>
+                    </div>
+                    <hr>
+                </div>
+
+            </div>
+         </div> 
+      </div>  
+    </section>
+    <!--=========== END SHOW EVENT REVIEW BANNER SECTION ================-->   

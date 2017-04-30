@@ -1,0 +1,156 @@
+<!--=========== Slider SECTION ================-->
+  <section>
+    <div style="padding: 40px"></div>
+    <div class="container-fluid">
+      <div class="row">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <div class="item imgSlider" ng-class="{active:!$index}" ng-repeat="event in allevents">
+                <img src="../laravelproject/{{event.logo}}" alt="img"> 
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="/#carousel-example-generic" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href="/#carousel-example-generic" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+          </div>
+      </div>
+    </div>
+  </section>
+  <!--=========== End Slider SECTION ================-->
+  <!--=========== Events SECTION ====================-->
+  <section class="topEvents">
+      <!-- Our Top events titles -->
+      <div class="row">
+        <div class="col-lg-12 col-md-12"> 
+          <div class="title_area">
+            <h2 class="title_two"><i class="fa fa-th-list"></i> المبادرات الأعلى تقييمًا</h2>
+            <span></span> 
+          </div>
+        </div>
+      </div>
+      <!-- Start Top Events -->
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="ourCourse_content">
+            <ul class="course_nav">
+              <li ng-repeat="event in topEvents">
+                <div class="single_course">
+                  <div class="singCourse_imgarea topThree">
+                    <img src="../laravelproject/{{event.logo}}" />
+                    <div class="mask">                         
+                      <a href="./{{event.id}}/eventdetails" class="course_more">قراءة التفاصيل</a>
+                    </div>
+                  </div>
+                  <div class="singCourse_content">
+                  <h3 class="singCourse_title"><a href="./{{event.id}}/eventdetails">{{event.title}}</a></h3>
+                  <p class="singCourse_price"><span class="glyphicon glyphicon-map-marker"></span> {{event.full_address}}</p>
+                  <p class="singCourse_price eventDescription">{{event.description | limitTo: filterDetailsLimit}}<a href="./{{event.id}}/eventdetails">...</a></p>
+                  <a class="blog_readmore" href="./{{event.id}}/eventdetails">قراءة المزيد</a>
+                  </div>
+                  <!-- <div class="singCourse_author">
+                    <img src="img/author.jpg" alt="img">
+                    <p></p>
+                  </div> -->
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Events -->
+  </section>
+  <!--=========== End Events SECTION ====================-->
+  <hr class="style12">
+  <!--=========== Organizations SECTION ====================-->
+  <section class="topOrganizations">
+      <!-- Our Top events titles -->
+      <div class="row">
+        <div class="col-lg-12 col-md-12"> 
+          <div class="title_area">
+            <h2 class="title_two"><i class="fa fa-cubes"></i> الجمعيات الأحدث انضمامًا</h2>
+            <span></span> 
+          </div>
+        </div>
+      </div>      
+      <!-- Start Top Organizations -->
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="ourCourse_content">
+            <ul class="course_nav">
+              <li ng-repeat="organization in topOrgs">
+                <div class="single_course">
+                  <div class="singCourse_imgarea topThree">
+                    <img src="../laravelproject/{{organization.logo}}" width="100" height="200" />
+                    <div class="mask">                         
+                      <a href="./orgprofile/{{organization.id}}" class="course_more">قراءة التفاصيل</a>
+                    </div>
+                  </div>
+                  <div class="singCourse_content">
+                  <h3 class="singCourse_title"><a href="./orgprofile/{{organization.id}}">{{organization.name}}</a></h3>
+                  <p class="singCourse_price"><span class="glyphicon glyphicon-map-marker"></span> {{organization.full_address}}</p>
+                  <p class="singCourse_price organizationDescription">{{organization.description | limitTo: filterDetailsLimit}}<a href="./orgprofile/{{organization.id}}">...</a></p>
+                  <a class="blog_readmore" href="./orgprofile/{{organization.id}}">قراءة المزيد</a>
+                  </div>
+                  <!-- <div class="singCourse_author">
+                    <img src="img/author.jpg" alt="img">
+                    <p></p>
+                  </div> -->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Organizations -->
+  </section>
+  <!--=========== End Organizations SECTION ====================-->
+  <hr class="style12">
+  <!--=========== Stories SECTION ====================-->
+  <section class="topStories">
+      <!-- Our Most Recent titles -->
+      <div class="row">
+        <div class="col-lg-12 col-md-12"> 
+          <div class="title_area">
+            <h2 class="title_two"><i class="fa fa-book"></i> أحدث القصص</h2>
+          </div>
+        </div>
+      </div> 
+      <!-- Start Most Recent Sotries -->
+      <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-12">
+          <div class="ourCourse_content">
+            <ul class="course_nav">
+              <li ng-repeat="story in mostRecentStories">
+                <div class="single_course">
+                  <div class="singCourse_imgarea topThree">
+                    <!-- <img src="../laravelproject/{{story.logo}}"/> -->
+                    <!-- <div class="mask">                         
+                      <a href="./{{story.id}}/storydetails" class="course_more">View Story</a>
+                    </div> -->
+                  </div>
+                  <div class="singCourse_content">
+                  <h3 class="singCourse_title"><a href="./{{story.id}}/storydetails">{{story.title}}</a></h3>
+                  <p class="singCourse_price storyDescription"><span class="glyphicon glyphicon-list-alt"></span> {{story.content | limitTo: filterDetailsLimit}}<a href="./{{story.id}}/storydetails">...</a></p>
+                  <a class="blog_readmore" href="./{{story.id}}/storydetails">قراءة المزيد</a>
+                  </div>
+                  <!-- <div class="singCourse_author">
+                    <img src="img/author.jpg" alt="img">
+                    <p></p>
+                  </div> -->
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Organizations -->
+  </section>
+  <!--=========== END Stories SECTION ================-->
+</div>    

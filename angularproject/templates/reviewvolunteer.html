@@ -1,0 +1,34 @@
+<!-- get volunteers who participated in certain events to rate them -->
+<section >
+<p style="padding-top: 100px"></p>
+		<div>
+			<h2>التقيمات على الحدث  {{eventname}}</h2>
+		</div>
+		<div class="row">
+		     <div class="col-sm-2 col-sm-offset-1">المتطوع</div>
+		     <div class="col-sm-1 ">حضر</div>
+		     <div class="col-sm-2 col-sm-offset-1">التقييم</div>
+		     <div class="col-sm-4 col-sm-offset-1">تعليق</div>
+		</div>
+			<div  class="row" ng-repeat="volunteer in volunteers track by $index">
+			    <div class="col-sm-2 text-center" > 
+			          <p>{{volunteer.first_name}}</p>
+			    </div>
+			    <form method="POST" ng-submit=reviewvolunteers(eventid,volunteer.id,$index) class="well eventForms">
+				    <div class="col-sm-1 col-sm-offset-1"> 
+				    <input type="checkbox" name="attend" ng-model="reviewvolunteer[$index].attend">
+				    </div>
+				    
+				    <div class="col-sm-2">
+					    <input-stars class="wp-form-control wpcf7-text stars" name="rate" required max="5" ng-model="reviewvolunteer[$index].rate">	
+					    </input-stars>
+				    </div>
+				 
+				    <div class="col-sm-4"> 
+				    	<input type="text" class="wp-form-control wpcf7-text" name="comment" placeholder="اكتب تقييم" ng-model="reviewvolunteer[$index].comment">
+				    </div>
+				    <input type="submit" name="save" value="save" >
+			    </form>  
+			</div>
+			<hr>
+</section>

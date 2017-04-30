@@ -1,0 +1,40 @@
+<div class="container">
+    <p style="padding:40px"></p>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading"> <strong class="">تسجيل الدخول</strong>
+                <p ng-show="loginErrorText" class="validation">البريد الالكتروني أو الرقم السري غير صحيحين</p>
+
+  
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal well" method="post" role="form" novalidate name="loginForm" ng-submit="submitted=true;login(loginForm.$valid)">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">البريد الالكتروني</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="wp-form-control wpcf7-email" name="email" placeholder="البريد الالكتروني" required ng-model="email">
+                                <p class="validation" ng-if="loginForm.email.$error.required&&submitted"> من فضلك ادخل البريد الالكتروني</p>
+                             <p class="validation" ng-if="loginForm.email.$error.email&&submitted">من فضلك ادخل البريد الالكتروني بشكل صحيح</p>
+ 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-3 control-label">كلمة السر</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="wp-form-control wpcf7-password" name="password" placeholder="كلمة السر" required ng-model="password">
+                                     <p class="validation" ng-if="loginForm.password.$error.required&&submitted">من فضلك ادخل الرقم السري</p> 
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <button class="wpcf7-submit"  >تسجيل الدخول</button>
+                                 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,515 @@
+.tabvolunteer{
+	border-right: 2px solid #FF9933;
+}
+.panel-title{
+	font-size: 20px;
+}
+
+.volunter-tble .table td span{
+display:inline-block;
+}
+
+.block-title{
+	width:30%;
+}
+.block-desc{
+	width:70%;
+}
+.volunter-tble .block-title{
+ font-weight:bold;
+}
+.volunter-tble tr:first-child td{
+	border: none;
+}
+.event
+{
+	width: 30%;
+	height: 300px;
+}
+#imgBanner h2
+{
+	color: #000;
+	margin-top:0;
+}
+// .contact_form
+// {
+// 	margin-top:5px;
+// }
+
+.validation{
+  color:#ff0000;
+}
+.wpcf7-textarea{
+	height: :150px !important;
+}
+
+.topEvents,.topStories{
+	background-color: #F6F6F6;
+	display: inline;
+  	float: left;
+  	padding: 60px;
+  	width: 100%;
+}
+.topOrganizations{
+	display: inline;
+  	float: left;
+  	padding: 60px;
+  	width: 100%;
+}
+
+hr.style12 {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0 0;
+    border: 0;
+}
+
+.singCourse_imgarea{
+	float: left;
+  	overflow: hidden;
+  	position: relative;
+  	text-align: center;
+}
+
+.singCourse_imgarea .mask{
+	background-color:#438189;
+}
+
+.topThree{
+	width: 100% !important;
+}
+.panel-heading{
+	padding: 10px 10px 20px 20px;
+}
+
+@font-face {
+    font-family: arabicFont;
+    src: url(../fonts/DroidSans.ttf);
+}
+
+@font-face {
+    font-family: arabicFontTwo;
+    src: url(../fonts/A-Mosalas.ttf);
+}
+
+body, h1,h2,h3,h4,h5,h6 {
+	font-family: arabicFont;
+}
+
+.navbar-default .navbar-nav > li > a{
+	font-size:20px;
+	font-family:arabicFont;
+}
+.navbar-default .navbar-brand span{
+	font-size:40px;
+}
+
+.navbar-brand{
+	font-family: arabicFontTwo;
+}
+
+.footer_widget_nav li a, .single_footer_widget h3, p{
+	font-family: arabicFont;
+	font-size: 20px;
+}
+
+.footer_widget_nav li a:hover{
+	color:#ff9933;
+}
+
+.eventsFooter{
+	position:relative;
+	left:-40px;
+}
+
+.storyDescription,.organizationDescription,.eventDescription{
+	word-wrap:break-word;
+}
+
+.singCourse_title{
+	font-weight:bold;
+}
+.stars{
+	color: #FDE35E;
+}
+.ratetable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+.signupTab{
+	border-bottom: none;
+}
+
+// search bar
+.search-box-outer{
+	position:absolute;
+	width:100%; 
+	height:60px; 
+	float:left; 
+	background:#fff; 
+	z-index:99999999; 
+	left:0;
+	top:-60px;
+	display: none!important;
+	// transition: all 0.2s ease-in;
+	// -moz-transition: all 1s ease-in-out;
+}
+.search-box{
+	width:100%;
+	position:relative; 
+	padding-right:60px;
+}
+.search-box .form-control, .search-box .form-control:focus{
+	height:82px; 
+	border:0;
+	border-bottom: 1px solid #ccc; 
+	box-shadow:none !important; 
+	font-size:24px; 
+	border-radius: 0;
+}
+.close-search{
+	background-color: #fff;
+	color: #000;
+	width: 60px;
+	height: 82px;
+	float: left;
+	border-bottom: 1px solid #ccc;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 24px;
+	line-height: 82px;
+	text-align: center;
+}
+.show-search .search-box-outer{
+	top:0;
+	position: fixed!important;
+	z-index: 99999;
+    width: 100%;
+}
+.search-box-outer .container{
+	padding:40;	
+}
+.wp-form-control li{
+	display: inline-block!important;
+}
+.profileimg{
+	width:80px;
+	height:80px;
+}
+.item.imgSlider img{
+	width:100%;
+	height:400px;
+}
+.wpcf7-submit .editButton{
+	margin: 0 50px;
+}
+
+.selectpicker{
+	margin-bottom: 10px;
+    width: 100%;
+}
+
+.signupTab > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+    position:relative;
+    right:10px;
+    border-radius:10px 10px 0 0;
+}
+
+.signupTab{
+    text-align:center;
+}
+.lb-signup{
+	color: #78ADC9;
+}
+
+.dropdown-menu li{
+	background-color:#438189;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a{
+	color:#ffffff;
+}
+
+.dropdown-menu li:hover{
+	background-color:#ffffff;
+	color:#FF9933;
+}
+.single_footer_widget a{
+	color:#FF9933;
+}
+.single_course{
+	min-height:200px;
+}
+
+//################## about us #####################
+// -----------------team section-------------------
+.card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card .card-heading {
+    padding: 0 20px;
+    margin: 0;
+}
+
+.card .card-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.card .card-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.card .card-heading.image .card-heading-header {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card .card-heading.image .card-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+}
+
+.card .card-heading.image .card-heading-header span {
+    font-size: 12px;
+    color: #999999;
+}
+
+.card .card-body {
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+.card .card-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+}
+
+.card .card-media img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card .card-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+}
+
+.card .card-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.card .card-comments .comments-collapse-toggle {
+    padding: 0;
+    margin: 0 20px 12px 20px;
+}
+
+.card .card-comments .comments-collapse-toggle a,
+.card .card-comments .comments-collapse-toggle span {
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card.people {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.card.people:first-child {
+    margin-left: 0;
+}
+
+.card.people .card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 170px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.card.people .card-top.green {
+    background-color: #53a93f;
+}
+
+.card.people .card-top.blue {
+    background-color: #427fed;
+}
+
+.card.people .card-info {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 101px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.people .card-info .title {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #404040;
+}
+
+.card.people .card-info .desc {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.people .card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    line-height: 29px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    text-align: center;
+    background-color: rgba(214, 224, 226, 0.2);
+}
+
+.card.hovercard .cardheader {
+    background-color:#2eb8b8;
+    background-size: cover;
+    height: 135px;
+    padding: 15px;
+    border-radius:10px 10px 0 0;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 120px;
+    height: 120px;
+    max-width: 120px;
+    max-height: 120px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+    margin-bottom: 4px;
+    font-size: 24px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.hovercard .bottom {
+    padding: 0 5px 20px;
+    margin-bottom: 17px;
+}
+
+.btn-twitter,.btn-googleplus ,.btn-facebook{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
+
+.card.hovercard.cardHead{
+	background-color:#ffebcc;
+    border-radius:0 0 10px 10px;
+    transition:1s;
+}
+
+.card.hovercard.cardHead:hover{
+    box-shadow: 1px 1px 5px #888888;
+    transition:1s;
+}
+.aboutusDescription{
+    width:80%;
+}
+
+.cardHeadTitle{
+    color:#ffffff;
+}
+
+#imgBanner h2{
+    color:#ffffff;
+    text-shadow: 1px 1px 0 #000000;
+}
