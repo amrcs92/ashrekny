@@ -1,122 +1,128 @@
 <section id="courseArchive">
-<br>
-	<div class="row">
-		<div class="col-sm-8">	
+	<div class="container">
+		<p style="padding-top: 20px"></p>
 
-		    <!-- events in search results -->
-			<div ng-repeat="event in events_results" ng-show="filterCategory(event.categories)||first">                
-				<!-- start single blog archive -->
-				<div class="col-sm-12">
-				    <div class="single_blog_archive wow fadeInUp ">
-				    	<div class="row">
-					        <div class=" col-sm-3 blogimg_container event inheret" style="width:25% !important;">
-						          <a href="./{{event.id}}/eventdetails" class="blog_img" >
-						            <img alt="img" src="../laravelproject/{{event.logo}}">
-						          </a>
+		<div class="row">
+			<div class="col-sm-8">	
+
+			    <!-- events in search results -->
+				<div ng-repeat="event in events_results" ng-show="filterCategory(event.categories)||first">                
+					<!-- start single blog archive -->
+					<div class="col-sm-12">
+					    <div class="single_blog_archive wow fadeInUp ">
+					    	<div class="row">
+						        <div class=" col-sm-3 blogimg_container event inheret" style="width:25% !important;">
+							          <a href="./{{event.id}}/eventdetails" class="blog_img" >
+							            <img alt="img" src="../laravelproject/{{event.logo}}">
+							          </a>
+						        </div>
+						        <div class=" col-sm-9" >
+						              <h2 class="blog_title"><a href="./{{event.id}}/eventdetails">{{event.title}}</a></h2> 
+						              <div star-Rating class="myRating" ng-model='event.avg_rate'></div><br>
+						              <br>
+						              <div class="blog_commentbox">
+						                <p><i class="fa fa-clock-o"></i> الميعاد:{{event.start_date}} </p><br>
+						                <p><i class="fa fa-map-marker"></i>المكان: {{event.full_address}}</p>          
+						              </div>
+						              <div class="row">
+						              	<p class="blog_summary"> {{event.description}} </p>
+						               <a class="blog_readmore" href="./{{event.id}}/eventdetails">التفاصيل</a>
+						              </div>
+						              <div class="row">
+						              	 <div class="fb-share-button col-sm-3 col-sm-offset-9" data-href="https://localhost/GP/angularproject/{{event.id}}/eventdetails" data-layout="button_count" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore btn-primary" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgoogle.com%2F&amp;src=sdkpreparse">شير <i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></a></div>
+						              </div>
+						             
+						             
+						          </div>
 					        </div>
-					        <div class=" col-sm-9" >
-					              <h2 class="blog_title"><a href="./{{event.id}}/eventdetails">{{event.title}}</a></h2> 
-					              <div star-Rating class="myRating" ng-model='event.avg_rate'></div><br>
-					              <br>
-					              <div class="blog_commentbox">
-					                <p><i class="fa fa-clock-o"></i> الميعاد:{{event.start_date}} </p><br>
-					                <p><i class="fa fa-map-marker"></i>المكان: {{event.full_address}}</p>          
-					              </div>
-					              <div class="row">
-					              	<p class="blog_summary"> {{event.description}} </p>
-					               <a class="blog_readmore" href="./{{event.id}}/eventdetails">التفاصيل</a>
-					              </div>
-					              <div class="row">
-					              	 <div class="fb-share-button col-sm-3 col-sm-offset-9" data-href="https://localhost/GP/angularproject/{{event.id}}/eventdetails" data-layout="button_count" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore btn-primary" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgoogle.com%2F&amp;src=sdkpreparse">شير <i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></a></div>
-					              </div>
-					             
-					             
-					          </div>
-				        </div>
-				    </div>
+					    </div>
+					</div>
+					<!-- End single blog archive -->                
 				</div>
-				<!-- End single blog archive -->                
-			</div>
-			<!-- organizations in search results -->
-			<div ng-repeat="organization in organizations_results" ng-show="filterCategory(organization.categories)||first">
-			  
-				<div class="row"> 
-		            <div class="single_blog_archive wow fadeInUp ">
-		                <div class="row">
-		                    <div class=" col-sm-4 blogimg_container event inheret" style="width:25% !important;">
-			                      <a href="./orgprofile/{{organization.id}}" class="blog_img" >
-			                        <img alt="img" src="../laravelproject/{{organization.logo}}">
-			                      </a>
-		                    </div>
-		                    <div class="col-sm-8">
-		                        <div class="row">
-		                          <!-- <div class=" col-sm-6" > -->
-		                          <h3 class="blog_title"><a href="./orgprofile/{{organization.id}}">{{organization.name}}</a></h3> 
-		                           <!-- </div> -->
-		                        </div>
-		                                <br>
-		                                <br>
-		                        <div class="row">
-		                            <div class="col-sm-4" >
-		                                <p><i class="fa fa-clock-o"></i> تاريخ التسجيل :</p>
-		                            </div>
-		                            <div class="col-sm-8" >
-		                                <p>{{organization.created_at}}</p>
-		                            </div>
-		                        </div>
-		                        <div class="row">
-		                            <div class="col-sm-4" >
-		                                <p><i class="fa fa-map-marker"></i> العنوان :</p>
-		                            </div>
-		                            <div class="col-sm-8" >
-		                                <p>{{user.country}} {{user.city}} {{user.region}} {{organization.full_address}}</p>
-		                            </div>
-		                        </div>
-		                        <div class="row">
-		                            <p>{{organization.description |limitTo:descriptionLimit}}...</p>
-		                        </div>
-		                        <div class="row">
-		                            <a class="blog_readmore" href="./orgprofile/{{organization.id}}"><strong>التفاصيل</strong></a>
-		                        </div>
-		                                <br>
-		                                <br>  
-		                    </div>
-		                </div>                                
-		            </div>
+				<!-- organizations in search results -->
+				<div ng-repeat="organization in organizations_results" ng-show="filterCategory(organization.categories)||first">
+				  
+					<div class="row"> 
+			            <div class="single_blog_archive wow fadeInUp ">
+			                <div class="row">
+			                    <div class=" col-sm-4 blogimg_container event inheret" style="width:25% !important;">
+				                      <a href="./orgprofile/{{organization.id}}" class="blog_img" >
+				                        <img alt="img" src="../laravelproject/{{organization.logo}}">
+				                      </a>
+			                    </div>
+			                    <div class="col-sm-8">
+			                        <div class="row">
+			                          <!-- <div class=" col-sm-6" > -->
+			                          <h3 class="blog_title"><a href="./orgprofile/{{organization.id}}">{{organization.name}}</a></h3> 
+			                           <!-- </div> -->
+			                        </div>
+			                                <br>
+			                                <br>
+			                        <div class="row">
+			                            <div class="col-sm-4" >
+			                                <p><i class="fa fa-clock-o"></i> تاريخ التسجيل :</p>
+			                            </div>
+			                            <div class="col-sm-8" >
+			                                <p>{{organization.created_at}}</p>
+			                            </div>
+			                        </div>
+			                        <div class="row">
+			                            <div class="col-sm-4" >
+			                                <p><i class="fa fa-map-marker"></i> العنوان :</p>
+			                            </div>
+			                            <div class="col-sm-8" >
+			                                <p>{{user.country}} {{user.city}} {{user.region}} {{organization.full_address}}</p>
+			                            </div>
+			                        </div>
+			                        <div class="row">
+			                            <p>{{organization.description |limitTo:descriptionLimit}}...</p>
+			                        </div>
+			                        <div class="row">
+			                            <a class="blog_readmore" href="./orgprofile/{{organization.id}}"><strong>التفاصيل</strong></a>
+			                        </div>
+	                                <br>
+	                                <br>  
+			                    </div>
+			                </div>                                
+			            </div>
+				    </div>
 			    </div>
-		    </div>
-			<!-- stories in search results -->
-			<div ng-repeat="story in stories_results" ng-show="filterCategory(story.categories)||first">
-			  		        <!-- start single blog archive -->
-		        <div class="col-lg-12 col-12 col-sm-12">
-		          <div class="single_blog_archive wow fadeInUp">
-		            <h2 class="blog_title"><a href="events-single.html">{{story.title}}</a></h2>
-		            <div class="blog_commentbox">
-		              <p><i class="fa fa-clock-o"></i>Time: {{story.created_at}}</p>
-		              <p><a href="./volunteerprofile/{{story.volunteer.id}}"><i class=""></i>الكاتب : {{story.volunteer.first_name}} {{story.volunteer.last_name}}</a></p>                     
-		            </div>
-		            <p class="blog_summary">{{story.content}}</p>
-		            <a class="blog_readmore" href="./{{story.id}}/storydetails">Read More</a>
-		          </div>
-		        </div>
-		        <!-- End single blog archive -->
-		    </div>
-		     <!-- start previous & next button -->
-		</div>
-
-		<div class="col-sm-4 ">
-			<div class="row">
-				<div class="col-xs-9">
-		    	  	<input type="button" class="btn btn-info" data-toggle="collapse" data-target="#categories" value="الاهتمامات :">
-			        <div id="categories" class="collapse">
-			            <div class="list-group " ng-repeat="category in categories">
-				          <input type="checkbox" name="" ng-checked="exist(category.name)" ng-click="toggleSelection(category.name)">{{category.name}}
-				        </div>  
-		          </div>
-	          	</div>
+				<!-- stories in search results -->
+				<div ng-repeat="story in stories_results" ng-show="filterCategory(story.categories)||first">
+				  		        <!-- start single blog archive -->
+			        <div class="col-lg-12 col-12 col-sm-12">
+			          <div class="single_blog_archive wow fadeInUp">
+			            <h2 class="blog_title"><a href="events-single.html">{{story.title}}</a></h2>
+			            <div class="blog_commentbox">
+			              <p><i class="fa fa-clock-o"></i>Time: {{story.created_at}}</p>
+			              <p><a href="./volunteerprofile/{{story.volunteer.id}}"><i class=""></i>الكاتب : {{story.volunteer.first_name}} {{story.volunteer.last_name}}</a></p>                     
+			            </div>
+			            <p class="blog_summary">{{story.content}}</p>
+			            <a class="blog_readmore" href="./{{story.id}}/storydetails">Read More</a>
+			          </div>
+			        </div>
+			        <!-- End single blog archive -->
+			    </div>
+			     <!-- start previous & next button -->
+			</div>
+			
+			<div class="col-lg-4 col-md-4 col-sm-4">
+		        <div class="courseArchive_sidebar">
+		          <!-- start single sidebar -->
+		          	<div class="single_sidebar">
+					  	<h2>الاهتمامات<span class=""></span></h2>
+						<div class="list-group" ng-repeat="category in categories">
+							<div class="col-sm-9">
+					          	{{category.name}}
+					        </div> 
+							<div class="col-sm-3">
+				          		<input type="checkbox" name="" ng-checked="exist(category.name)" ng-click="toggleSelection(category.name)">
+							</div>
+							<br>
+				        </div>
+					</div>
+				</div>	
 			</div>
 		</div>	
-
 	</div>
-
 </section> 
