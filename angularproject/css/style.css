@@ -556,10 +556,14 @@ div[data-dimension] {
 }
 .course_nav{}
 .course_nav li {
-  display: block;
-  float: left;
-  margin-right: 30px;
-  width: 31%;
+  // display: block;
+  // float: left;
+  // margin-right: 30px;
+  // width: 31%;
+  margin-bottom:10px;
+}
+.course_nav li img {
+  width:100%;
 }
 .course_nav li:last-child{
   margin-right: 0px;
